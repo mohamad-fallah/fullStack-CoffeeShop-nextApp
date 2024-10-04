@@ -1,6 +1,6 @@
 import styles from "./sms.module.css";
 
-const Sms = () => {
+const Sms = ({ hideOtpForm }) => {
   return (
     <>
       <div className={styles.form}>
@@ -15,7 +15,9 @@ const Sms = () => {
         </button>
         <p className={styles.send_again_code}>ارسال مجدد کد یکبار مصرف</p>
       </div>
-      <p className={styles.redirect_to_home}>لغو</p>
+      <p onClick={hideOtpForm} className={styles.redirect_to_home}>
+        لغو
+      </p>
     </>
   );
 };
