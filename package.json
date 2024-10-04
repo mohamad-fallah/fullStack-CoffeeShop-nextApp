@@ -1,5 +1,5 @@
 {
-  "name": "nexjs",
+  "name": "project",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.2.14"
+    "aos": "^3.0.0-beta.6",
+    "next": "13.4.0",
+    "leaflet": "^1.9.4",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-leaflet": "^4.2.1",
+    "react-icons": "^4.12.0",
+    "react-select": "^5.8.0",
+    "recharts": "^2.10.3",
+    "sweetalert": "^2.1.2",
+    "swiper": "^11.0.4"
   }
 }
