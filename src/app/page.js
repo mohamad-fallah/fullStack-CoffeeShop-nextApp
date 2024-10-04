@@ -1,3 +1,4 @@
+import Footer from "@/components/modules/footer/Footer";
 import Navbar from "@/components/modules/navbar/Navbar";
 import Articles from "@/components/templates/index/articles/Articles";
 import Banner from "@/components/templates/index/banner/Banner";
@@ -12,6 +13,7 @@ export default function Home() {
       <Latest />
       <Promote />
       <Articles />
+      <Footer />
     </>
   );
 }
