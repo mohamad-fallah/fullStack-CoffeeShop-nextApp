@@ -6,45 +6,46 @@ const hashPassword = async (password) => {
   return hashedPassword;
 };
 
-const verifyPaswword = async (password, hashedPassword) => {
+const verifyPassword = async (password, hashedPassword) => {
   const isValid = await compare(password, hashedPassword);
   return isValid;
 };
 
 const generateAccessToken = (data) => {
-  const Token = sign({ ...data }, process.env.AccsessTokenSecretKey, {
-    expiresIn: "60s",
+  const token = sign({ ...data }, process.env.AccessTokenSecretKey, {
+    expiresIn: "60d",
   });
-
-  return Token;
-};
-
-const generateRefreshAccessToken = () => {
-  const Token = sign({ ...data }, process.env.RefreshTokenSecretKey, {
-    expiresIn: "15d",
-  });
-  return Token;
+  return token;
 };
 
 const verifyAccessToken = (token) => {
   try {
-    const tokenPlayload = verify(token, process.env.AccsessTokenSecretKey);
-    return tokenPlayload;
+    const tokenPayload = verify(token, process.env.AccessTokenSecretKey);
+    return tokenPayload;
   } catch (err) {
-    console.log("verify access token erorr: ", err);
+    console.log("Verify Access Token Error ->", err);
     return false;
   }
 };
 
-const validateEmail = (email) => {
+const generateRefreshToken = (data) => {
+  const token = sign({ ...data }, process.env.RefreshTokenSecretKey, {
+    expiresIn: "15d",
+  });
+  return token;
+};
+
+const valiadteEmail = (email) => {
   const pattern = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/g;
   return pattern.test(email);
 };
-const validatePhone = (phone) => {
-  const pattern = /^(\+98|0)?9[0-9]{2}[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}$/g;
+
+const valiadtePhone = (phone) => {
+  const pattern = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/g;
   return pattern.test(phone);
 };
-const validatePassword = (password) => {
+
+const valiadtePassword = (password) => {
   const pattern =
     /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/g;
   return pattern.test(password);
@@ -52,11 +53,11 @@ const validatePassword = (password) => {
 
 export {
   hashPassword,
-  verifyPaswword,
+  verifyPassword,
   generateAccessToken,
   verifyAccessToken,
-  generateRefreshAccessToken,
-  validateEmail,
-  validatePhone,
-  validatePassword,
+  generateRefreshToken,
+  valiadteEmail,
+  valiadtePhone,
+  valiadtePassword,
 };

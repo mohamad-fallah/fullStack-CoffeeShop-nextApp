@@ -1,76 +1,48 @@
-import connectToDb from "@/configs/db";
-import userModel from "@/models/user";
-
-import {
-  generateAccessToken,
-  hashPassword,
-  validateEmail,
-  validatePassword,
-  validatePhone,
-} from "@/utils/auth";
+import connectToDB from "@/configs/db";
+import UserModel from "@/models/User";
+import { generateAccessToken, hashPassword } from "@/utils/auth";
 import { roles } from "@/utils/constants";
 
 export async function POST(req) {
-  connectToDb();
+  connectToDB();
   const body = await req.json();
   const { name, phone, email, password } = body;
 
-  if (!name) {
-    return Response.json({ error: "Invalid name format." }, { status: 400 });
-  }
+  // Validation (You)
 
-  const isValidPhone = validatePhone(phone);
-  if (!isValidPhone) {
-    return Response.json({ error: "Invalid phone format." }, { status: 400 });
-  }
-
-  if (email.length > 0) {
-    const isValidEmail = validateEmail(email);
-    if (!isValidEmail) {
-      return Response.json({ error: "Invalid email format." }, { status: 400 });
-    }
-  }
-  const isValidPassword = validatePassword(password);
-  if (!isValidPassword) {
-    return Response.json(
-      { error: "Invalid password format." },
-      { status: 400 }
-    );
-  }
-
-  const isUseExist = await userModel.findOne({
-    $or: [
-      { name: name },
-      ...(email ? [{ email: email }] : []),
-      { phone: phone },
-    ],
+  const isUserExist = await UserModel.findOne({
+    $or: [{ name }, { email }, { phone }],
   });
 
-  if (isUseExist) {
+  if (isUserExist) {
     return Response.json(
-      { message: "the user name or email exist alredy" },
-      { status: 422 }
+      {
+        message: "The username or email or phone exist already !!",
+      },
+      {
+        status: 422,
+      }
     );
   }
 
   const hashedPassword = await hashPassword(password);
-  const accessToken = await generateAccessToken({ name: name });
+  const accessToken = generateAccessToken({ name });
 
-  const users = await userModel.find({});
+  const users = await UserModel.find({});
 
-  await userModel.create({
-    name: name,
-    email: email,
-    phone: phone,
+  await UserModel.create({
+    name,
+    email,
+    phone,
     password: hashedPassword,
     role: users.length > 0 ? roles.USER : roles.ADMIN,
   });
 
   return Response.json(
-    { message: "user signup suceessfully" },
+    { message: "User signed up successfully :))" },
     {
       status: 201,
-      headers: { "set-Cookie": `token=${accessToken};path=/;httpOnly=true` },
+      headers: { "Set-Cookie": `token=${accessToken};path=/;httpOnly=true` },
     }
   );
 }

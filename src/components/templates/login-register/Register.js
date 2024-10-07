@@ -1,47 +1,44 @@
 import { useState } from "react";
 import styles from "./register.module.css";
 import Sms from "./Sms";
-import { showSwal } from "@/utils/helper";
-import { validateEmail, validatePassword, validatePhone } from "@/utils/auth";
+import swal from "sweetalert";
+import { showSwal } from "@/utils/helpers";
+import { valiadteEmail, valiadtePassword, valiadtePhone } from "@/utils/auth";
 
 const Register = ({ showloginForm }) => {
   const [isRegisterWithPass, setIsRegisterWithPass] = useState(false);
   const [isRegisterWithOtp, setIsRegisterWithOtp] = useState(false);
-
-  const hideOtpForm = () => setIsRegisterWithOtp(false);
-
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signup = async () => {
+  const hideOtpForm = () => setIsRegisterWithOtp(false);
+
+  const signUp = async () => {
     if (!name.trim()) {
-      return showSwal("نام را وارد نکرده اید", "error", "تلاش مجدد");
+      return showSwal("نام را وارد بکنید", "error", "تلاش مجدد");
     }
 
-    const isValidPhone = validatePhone(phone);
+    const isValidPhone = valiadtePhone(phone);
     if (!isValidPhone) {
-      return showSwal("شماره تماش وارد شده صحیح نیست", "error", "تلاش مجدد");
+      return showSwal("شماره تماس وارد شده معتبر نیست", "error", "تلاش مجدد ");
     }
 
     if (email) {
-      const isValidEmail = validateEmail(email);
+      const isValidEmail = valiadteEmail(email);
       if (!isValidEmail) {
-        return showSwal("ایمیل وارد شده صحیح نیست", "error", "تلاش مجدد");
+        return showSwal("ایمیل وارد شده معتبر نیست", "error", "تلاش مجدد ");
       }
     }
 
-    const isValidPassword = validatePassword(password);
+    const isValidPassword = valiadtePassword(password);
     if (!isValidPassword) {
-      return showSwal(
-        "در رمز عبور از کاراکتر های انگلیسی با حروف کوچک و بزرگ و علامت ها و عدد استفاده کنید",
-        "error",
-        "تلاش مجدد"
-      );
+      return showSwal("پسورد وارد شده قابل حدس هست", "error", "تلاش مجدد ");
     }
 
     const user = { name, phone, email, password };
+
     const res = await fetch("/api/auth/signup", {
       method: "POST",
       headers: {
@@ -53,13 +50,7 @@ const Register = ({ showloginForm }) => {
     if (res.status === 201) {
       showSwal("ثبت نام با موفقیت انجام شد", "success", "ورود به پنل کاربری");
     } else if (res.status === 422) {
-      showSwal("کاربری با این اطلاعات وجود دارد", "error", "تلاش مجدد");
-    } else if (res.status === 500) {
-      showSwal(
-        "خطای از سمت سرور رخ داده است لطفا بعدا تلاش کنید",
-        "error",
-        "حله"
-      );
+      showSwal("کاربری با این اطلاعات از قبل وجود دارد", "error", "تلاش مجدد");
     }
   };
 
@@ -70,33 +61,33 @@ const Register = ({ showloginForm }) => {
           <div className={styles.form}>
             <input
               className={styles.input}
-              type="text"
-              placeholder="نام"
               value={name}
               onChange={(event) => setName(event.target.value)}
+              type="text"
+              placeholder="نام"
             />
             <input
               className={styles.input}
               type="text"
-              placeholder="شماره موبایل  "
               value={phone}
               onChange={(event) => setPhone(event.target.value)}
+              placeholder="شماره موبایل  "
             />
             <input
               className={styles.input}
               type="email"
-              placeholder="ایمیل (دلخواه)"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
+              placeholder="ایمیل (دلخواه)"
             />
 
             {isRegisterWithPass && (
               <input
                 className={styles.input}
                 type="password"
-                placeholder="رمز عبور"
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}
+                placeholder="رمز عبور"
               />
             )}
 
@@ -112,7 +103,7 @@ const Register = ({ showloginForm }) => {
               style={{ marginTop: ".7rem" }}
               onClick={() => {
                 if (isRegisterWithPass) {
-                  signup();
+                  signUp();
                 } else {
                   setIsRegisterWithPass(true);
                 }
