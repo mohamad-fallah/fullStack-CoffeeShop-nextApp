@@ -1,5 +1,7 @@
 import { hash, compare } from "bcryptjs";
 import { sign, verify } from "jsonwebtoken";
+import { cookies } from "next/headers";
+import UserModel from "@/models/User";
 
 const hashPassword = async (password) => {
   const hashedPassword = await hash(password, 12);
@@ -12,7 +14,7 @@ const verifyPassword = async (password, hashedPassword) => {
 };
 
 const generateAccessToken = (data) => {
-  const token = sign({ ...data }, process.env.AccessTokenSecretKey, {
+  const token = sign({ ...data }, process.env.AccsessTokenSecretKey, {
     expiresIn: "60d",
   });
   return token;
@@ -20,7 +22,7 @@ const generateAccessToken = (data) => {
 
 const verifyAccessToken = (token) => {
   try {
-    const tokenPayload = verify(token, process.env.AccessTokenSecretKey);
+    const tokenPayload = verify(token, process.env.AccsessTokenSecretKey);
     return tokenPayload;
   } catch (err) {
     console.log("Verify Access Token Error ->", err);
@@ -51,6 +53,20 @@ const valiadtePassword = (password) => {
   return pattern.test(password);
 };
 
+const authUser = async () => {
+  const token = cookies().get("token");
+  let user = null;
+
+  if (token) {
+    const tokenPayload = verifyAccessToken(token.value);
+    if (tokenPayload) {
+      user = await UserModel.findOne({ email: tokenPayload.email });
+    }
+  }
+
+  return user;
+};
+
 export {
   hashPassword,
   verifyPassword,
@@ -60,4 +76,5 @@ export {
   valiadteEmail,
   valiadtePhone,
   valiadtePassword,
+  authUser,
 };
