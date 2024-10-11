@@ -1,0 +1,27 @@
+.maps {
+  display: flex;
+  gap: 25px;
+}
+.container {
+  color: black;
+  text-align: right;
+  max-width: 1222px;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-bottom: 4rem;
+  margin-left: auto;
+}
+.maps section {
+  width: 50%;
+}
+.contents {
+  display: flex;
+  gap: 35px;
+}
+.contents section,
+.contents form {
+  width: 50%;
+  margin-top: 3rem;
+}

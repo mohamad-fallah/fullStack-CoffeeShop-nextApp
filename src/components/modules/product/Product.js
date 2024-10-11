@@ -3,12 +3,17 @@ import styles from "./product.module.css";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { CiSearch, CiHeart } from "react-icons/ci";
 
-const Card = () => {
+const Card = ({ name, price, img }) => {
+  console.log("Product Name ->", name);
+  console.log("Product Price ->", price);
   return (
     <div className={styles.card}>
       <div className={styles.details_container}>
         <img
-          src="https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"
+          src={
+            img ||
+            "https://set-coffee.com/wp-content/uploads/2021/10/041-430x430.png"
+          }
           alt=""
         />
         <div className={styles.icons}>
@@ -25,10 +30,7 @@ const Card = () => {
       </div>
 
       <div className={styles.details}>
-        <Link href={"/"}>
-          کپسول قهوه SETpresso سازگار با دستگاه نسپرسو ( RED ) 10 عددی LIMITED
-          EDITION
-        </Link>
+        <Link href={"/"}>{name}</Link>
         <div>
           <FaStar />
           <FaStar />
@@ -36,7 +38,7 @@ const Card = () => {
           <FaRegStar />
           <FaRegStar />
         </div>
-        <span>825,000 تومان</span>
+        <span>{price?.toLocaleString()} تومان</span>
       </div>
     </div>
   );

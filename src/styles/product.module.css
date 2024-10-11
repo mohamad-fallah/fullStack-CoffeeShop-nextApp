@@ -1,0 +1,25 @@
+.contents {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 160px;
+  text-align: right;
+  padding-top: 25px;
+  color: black;
+  direction: rtl;
+  font-family: shabnam;
+  padding-bottom: 5rem;
+}
+
+.contents hr {
+  border-top-color: rgb(0 0 0 / 23%);
+  margin: 20px 0px;
+}
+
+.main {
+  gap: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.container {
+  overflow: auto;
+}

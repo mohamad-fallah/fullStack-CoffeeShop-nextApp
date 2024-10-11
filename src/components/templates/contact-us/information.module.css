@@ -1,0 +1,26 @@
+.Information p {
+  font-size: 22px;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+.Information span {
+  color: gray;
+  font-size: 14px;
+}
+.Information div p {
+  font-size: 16px !important;
+}
+.Information div:nth-child(5) svg {
+  margin-top: 0.7rem;
+}
+.Information div {
+  display: flex;
+  justify-content: right;
+  gap: 14px;
+  flex-direction: row-reverse;
+  align-items: start;
+  color: gray;
+}
+.Information div svg {
+  font-size: 2.2rem;
+}

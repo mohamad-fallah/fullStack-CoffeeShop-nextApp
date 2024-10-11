@@ -1,0 +1,77 @@
+.userTicket {
+  width: 50%;
+  background-color: #711d1c;
+  border-radius: 5px;
+  padding: 0px 10px 10px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.adminticket {
+  width: 50%;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  padding: 0px 10px 10px;
+  border: #711d1c 3px solid;
+  margin-bottom: 15px;
+  margin-right: auto;
+}
+
+.userTicket img,
+.adminticket img {
+  width: 80px;
+  border-radius: 100px;
+}
+
+.ticket_main {
+  display: flex;
+  padding: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+
+.ticket_main div {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+
+.adminticket .ticket_text {
+  background-color: #711d1c;
+  color: white;
+}
+
+.ticket_text {
+  background-color: white;
+  color: black;
+  margin: 0.5rem 1rem;
+  border-radius: 5px;
+
+  padding: 0.5rem;
+}
+
+.empty {
+  width: 100%;
+  border-radius: 5px;
+  border-radius: 5px;
+  background-color: #711d1c21;
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px 0;
+  color: #711d1c;
+}
+
+.ticket_main div div span {
+  font-size: 14px;
+  width: 100%;
+  color: gray;
+}
+
+.ticket_main div div {
+  justify-content: right;
+  gap: 5px;
+  flex-direction: column;
+}

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -21,6 +21,7 @@
     "react-leaflet": "^4.2.1",
     "react-select": "^5.8.0",
     "recharts": "^2.10.3",
+    "request": "^2.88.2",
     "sweetalert": "^2.1.2",
     "swiper": "^11.0.4"
   }

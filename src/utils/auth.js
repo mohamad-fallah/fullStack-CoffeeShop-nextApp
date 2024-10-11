@@ -13,7 +13,7 @@ const verifyPassword = async (password, hashedPassword) => {
 
 const generateAccessToken = (data) => {
   const token = sign({ ...data }, process.env.AccsessTokenSecretKey, {
-    expiresIn: "60d",
+    expiresIn: "60s",
   });
   return token;
 };

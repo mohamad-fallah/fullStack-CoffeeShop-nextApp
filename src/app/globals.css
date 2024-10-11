@@ -130,6 +130,7 @@ a {
 
 .swal-title {
   color: #000000 !important;
+  direction: rtl;
 }
 
 .swal-button--confirm {

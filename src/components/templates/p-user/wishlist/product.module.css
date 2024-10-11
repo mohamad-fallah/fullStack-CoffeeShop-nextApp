@@ -1,0 +1,38 @@
+.card {
+  text-align: center;
+  color: black;
+}
+
+.card svg {
+  margin-top: 0.4rem;
+  font-size: 1.3rem;
+  color: orange;
+}
+
+.card p {
+  font-size: 0.9rem;
+}
+
+.card span {
+  font-size: 0.9rem;
+}
+.card div {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.delete_btn:hover {
+  opacity: 0.7;
+}
+.delete_btn {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  color: white;
+  transition: 1s all ease-in-out;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+  background-color: #711d1c;
+  border: 0;
+  outline: 0;
+}

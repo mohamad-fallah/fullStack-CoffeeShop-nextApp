@@ -1,0 +1,35 @@
+.box div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box {
+  border-radius: 5px;
+  padding: 1rem;
+  border: 2px solid #711d1c;
+  position: relative;
+  width: 270px;
+  margin: 0 auto;
+}
+.box_chart_icon {
+  color: #711d1c;
+  font-size: 2.5rem;
+}
+.box p::after {
+  content: "";
+  position: relative;
+  height: 2px;
+  top: 6px;
+  display: block;
+  background-color: #711d1c;
+  width: 80%;
+}
+.box p::before {
+  content: "";
+  position: relative;
+  height: 2px;
+  top: 40px;
+  display: block;
+  background-color: #711d1c;
+  width: 58%;
+}

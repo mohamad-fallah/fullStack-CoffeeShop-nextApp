@@ -1,0 +1,111 @@
+.rating {
+  display: flex;
+  gap: 9px;
+  margin-top: 2rem;
+}
+.rating svg {
+  color: orange;
+  font-size: 1.4rem;
+}
+.rating div {
+  display: flex;
+  gap: 2px;
+}
+.price {
+  color: rgb(52, 24, 14);
+  font-size: 1.5rem;
+  font-family: shabnam-Bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.description {
+  font-size: 15px;
+  display: block;
+  width: 93%;
+  color: rgb(160 151 151);
+}
+.Available svg {
+  font-size: 1.5rem;
+}
+.Available {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 50px;
+}
+
+.cart {
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  flex-direction: row-reverse;
+}
+.cart div span:nth-child(2) {
+  border-right: 1px solid black;
+}
+.cart div span:nth-child(1) {
+  border-left: 1px solid black;
+}
+.cart span {
+  width: 30%;
+  cursor: pointer;
+  padding: 10px 0px;
+}
+.cart div {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid gray;
+}
+.cart button:hover {
+  background-color: rgb(113, 29, 28);
+}
+.cart button {
+  background-color: rgb(0, 137, 121);
+  padding: 0.85rem 1.2rem;
+  cursor: pointer;
+  border: 0;
+  transition: all 0.2s;
+  font-family: shabnam;
+}
+
+.wishlist div {
+  display: flex;
+  gap: 3px;
+  align-items: center;
+}
+.wishlist div svg {
+  font-size: 1.3rem;
+}
+.wishlist {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.wishlist a:hover {
+  color: #777;
+  cursor: pointer;
+}
+.wishlist a {
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+}
+.share {
+  display: flex;
+  margin-top: 2rem;
+  gap: 8px;
+}
+.share svg {
+  font-size: 1.3rem;
+}

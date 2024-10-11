@@ -54,6 +54,39 @@ const Register = ({ showloginForm }) => {
     }
   };
 
+  const sendOtp = async () => {
+    const isValidPhone = valiadtePhone(phone);
+    if (!isValidPhone) {
+      return showSwal("شماره تماس وارد شده معتبر نیست", "error", "تلاش مجدد ");
+    }
+
+    const res = await fetch("/api/auth/sms/send", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ phone }),
+    });
+
+    if (res.status === 201) {
+      swal({
+        title: "کد ورود با موفقیت Sms شد",
+        icon: "success",
+        buttons: "وارد کردن کد لاگین",
+      }).then(() => {
+        setIsRegisterWithOtp(true);
+      });
+    } else if (res.status === 422) {
+      swal({
+        title: "این شماره تماس قبلا ثبت نام شده",
+        icon: "error",
+        buttons: "لاگین می‌کنم",
+      }).then(() => {
+        showloginForm();
+      });
+    }
+  };
+
   return (
     <>
       {!isRegisterWithOtp ? (
@@ -94,7 +127,7 @@ const Register = ({ showloginForm }) => {
             <p
               style={{ marginTop: "1rem" }}
               className={styles.btn}
-              onClick={() => setIsRegisterWithOtp(true)}
+              onClick={sendOtp}
             >
               ثبت نام با کد تایید
             </p>
@@ -119,7 +152,7 @@ const Register = ({ showloginForm }) => {
           <p className={styles.redirect_to_home}>لغو</p>
         </>
       ) : (
-        <Sms hideOtpForm={hideOtpForm} />
+        <Sms hideOtpForm={hideOtpForm} phone={phone} />
       )}
     </>
   );

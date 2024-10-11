@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const schema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    default: "کاربر ست کافی",
   },
   email: {
     type: String,

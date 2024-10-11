@@ -1,0 +1,150 @@
+.title {
+  margin-top: 30px;
+  text-align: right;
+  text-transform: uppercase;
+  position: relative;
+  font-size: 30px;
+  z-index: 1;
+  font-weight: 500;
+}
+
+.title:before {
+  border-top: 2px solid #dfdfdf;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 52%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 95%;
+  z-index: -1;
+}
+
+.title span {
+  background: #fff;
+  padding: 0 15px;
+  margin-right: 4rem;
+}
+
+.title:before {
+  border-top: none;
+}
+
+.title:after {
+  border-bottom: 1px solid #711d1c;
+  -webkit-box-shadow: 0 1px 0 0 #711d1c;
+  -moz-box-shadow: 0 1px 0 0 #711d1c;
+  box-shadow: 0 1px 0 0 #711d1c;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 51%;
+  left: 0;
+  right: 0;
+  width: 95%;
+  z-index: -1;
+}
+
+.table {
+  width: 100%;
+}
+
+.table tbody tr {
+  background-color: rgb(255, 255, 255);
+}
+
+.table {
+  width: 100%;
+  background-color: #f2f7fd;
+}
+
+.table th {
+  border: none;
+  color: #000000;
+  text-align: center;
+}
+
+.table tr {
+  vertical-align: middle;
+}
+
+.table td,
+.table th {
+  padding: 8px 22px;
+  text-align: center;
+}
+
+.delete_btn {
+  font-size: 13px;
+  background: #711d1c;
+  padding: 0.4rem 0.7rem;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  width: -webkit-fill-available;
+}
+
+.edit_btn,
+.btn {
+  font-size: 13px;
+  background: #000000;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  width: -webkit-fill-available;
+}
+
+.table_container {
+  padding: 40px 25px;
+}
+
+.answer_contact {
+  color: rgb(0, 0, 0);
+  background-color: blue !important;
+}
+
+.no_answer_contact {
+  color: white;
+  background-color: red !important;
+}
+.answer_comment {
+  color: rgb(255, 255, 255);
+  background-color: blue !important;
+}
+
+.no_answer_comment {
+  color: white;
+  background-color: red !important;
+}
+.check,
+.no_check {
+  font-size: 13px;
+  background: #000000;
+  padding: 0.4rem 0.7rem;
+  width: -webkit-fill-available;
+  cursor: pointer;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+}
+.no_check {
+  background: #711d1c;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty {
+  color: white;
+  background-color: #711d1c;
+  padding: 0.7rem 2rem;
+  width: max-content;
+  margin: 15rem auto;
+  font-size: 1.7rem;
+  border-radius: 5px;
+}

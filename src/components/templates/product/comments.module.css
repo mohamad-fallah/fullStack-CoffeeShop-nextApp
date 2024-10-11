@@ -1,0 +1,14 @@
+.comments {
+  display: flex;
+  gap: 50px;
+}
+.comments span {
+  margin-right: 0.3rem;
+}
+.user_comments {
+  width: 50%;
+}
+
+.form_bg {
+  width: 50%;
+}

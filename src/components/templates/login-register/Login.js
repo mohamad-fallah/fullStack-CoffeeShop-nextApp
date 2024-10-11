@@ -4,8 +4,10 @@ import Link from "next/link";
 import Sms from "./Sms";
 import { showSwal } from "@/utils/helpers";
 import { valiadteEmail, valiadtePassword } from "@/utils/auth";
+import { useRouter } from "next/navigation";
 
 const Login = ({ showRegisterForm }) => {
+  const router = useRouter();
   const [isLoginWithOtp, setIsLoginWithOtp] = useState(false);
   const [password, setPassword] = useState("");
   const [phoneOrEmail, setPhoneOrEmail] = useState("");
@@ -13,7 +15,6 @@ const Login = ({ showRegisterForm }) => {
   const hideOtpForm = () => setIsLoginWithOtp(false);
 
   const loginWithPassword = async () => {
-    console.log(phoneOrEmail);
     if (!phoneOrEmail) {
       return showSwal("لطفا شماره تماس یا ایمیل را وارد کنید", "error", "چشم");
     }
@@ -41,9 +42,14 @@ const Login = ({ showRegisterForm }) => {
     });
     const data = await res.json();
 
-    console.log("Res ->", res);
     if (res.status === 200) {
-      showSwal("با موفقیت لاگین شدین", "success", "ورود به پنل کاربری");
+      swal({
+        title: "با موفقیت لاگین شدین",
+        icon: "success",
+        buttons: "ورود به پنل کاربری",
+      }).then(() => {
+        router.replace("p-user");
+      });
     } else if (res.status === 422 || res.status === 401) {
       showSwal("کاربری با این اطلاعات یافت نشد", "error", "تلاش مجدد");
     } else if (res.status === 419) {

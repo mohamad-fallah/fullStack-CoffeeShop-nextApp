@@ -1,0 +1,114 @@
+.discount {
+  padding: 20px;
+}
+
+.discount_main {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: auto auto;
+}
+.discount_main div {
+  display: flex;
+  flex-direction: column;
+}
+.discount select {
+  background: white;
+  padding: 10px;
+  color: black;
+  border-radius: 5px;
+  border: 3px solid #711d1c;
+  margin-top: 4.5px;
+  outline: 0;
+}
+.discount input {
+  padding: 10px;
+  background-color: white;
+  margin-top: 4px;
+  outline: 0;
+  color: black;
+  border-radius: 5px;
+  border: 3px solid #711d1c;
+  width: 100%;
+}
+.discount p {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 30px;
+  position: relative;
+  z-index: 1;
+}
+.discount label {
+  font-size: 20px;
+}
+.table {
+  width: 100%;
+}
+
+.table tbody tr {
+  background-color: rgb(255, 255, 255);
+}
+
+.table {
+  width: 100%;
+  background-color: #f2f7fd;
+}
+
+.table th {
+  border: none;
+  color: #000000;
+  text-align: center;
+}
+
+.table tr {
+  vertical-align: middle;
+}
+
+.table td,
+.table th {
+  padding: 8px 0px;
+  text-align: center;
+}
+
+.delete_btn {
+  font-size: 13px;
+  background: #711d1c;
+  padding: 0.4rem 0.7rem;
+  border: 0;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+}
+
+.discount button {
+  margin-left: auto;
+  width: max-content;
+  border: 0;
+  border-radius: 4px;
+  background-color: #711d1c;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1.4rem;
+}
+
+.empty {
+  color: white;
+  background-color: #711d1c;
+  padding: 0.7rem 2rem;
+  width: max-content;
+  margin: 8rem auto;
+  font-size: 1.7rem;
+  border-radius: 5px;
+}
+
+.green {
+  color: white;
+  background-color: green;
+}
+
+.red {
+  color: white;
+  background-color: red;
+}

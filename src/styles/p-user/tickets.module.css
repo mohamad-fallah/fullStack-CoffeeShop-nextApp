@@ -1,0 +1,115 @@
+.title {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+  position: relative;
+  font-size: 30px;
+  z-index: 1;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.title a {
+  background-color: #ffffff;
+  color: #711d1c;
+  font-size: 1rem;
+  display: flex;
+  position: relative;
+  left: 30px;
+  border-radius: 20px;
+  padding: 0 10px;
+  align-items: center;
+  border: 1px solid #711d1c;
+}
+
+.title:before {
+  border-top: 2px solid #dfdfdf;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 52%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.title span {
+  background: #fff;
+  padding: 0 15px;
+  margin-right: 4rem;
+}
+
+.title:before {
+  border-top: none;
+}
+
+.title:after {
+  border-bottom: 1px solid #711d1c;
+  -webkit-box-shadow: 0 1px 0 0 #711d1c;
+  -moz-box-shadow: 0 1px 0 0 #711d1c;
+  box-shadow: 0 1px 0 0 #711d1c;
+  content: "";
+  margin: 0 auto;
+  position: absolute;
+  top: 51%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.container {
+  padding: 0 30px;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  justify-content: space-between;
+}
+
+.filtering select {
+  background: white;
+  padding: 10px;
+  color: black;
+  border: none;
+  border-bottom: 3px solid #711d1c;
+  margin-top: 4.5px;
+  width: 150px;
+  outline: 0;
+}
+
+.filtering {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2rem;
+}
+
+.filtering div {
+  display: flex;
+  gap: 15px;
+}
+
+.filtering button {
+  width: max-content;
+  padding: 0.8rem 1.4rem;
+  border: 0;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #711d1c;
+}
+.empty {
+  width: 100%;
+  border-radius: 5px;
+  border-radius: 5px;
+  background-color: #711d1c21;
+  text-align: center;
+  margin-top: 60px;
+  padding: 20px 0;
+  color: #711d1c;
+}

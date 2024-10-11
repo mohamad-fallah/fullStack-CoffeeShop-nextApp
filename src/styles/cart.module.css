@@ -1,0 +1,58 @@
+.cart_empty {
+  position: relative;
+  margin-top: 5vw;
+  margin-bottom: 54px;
+  text-align: center;
+  line-height: 1.2;
+  color: black;
+  direction: rtl;
+}
+
+.cart_empty svg {
+  font-size: 15.2em;
+  color: #f1f1f1;
+}
+
+.cart_empty p {
+  font-size: 48px;
+  margin-bottom: 1.5rem;
+}
+
+.cart_empty span {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: gray;
+}
+
+.cart_empty a:hover {
+  background: rgb(113, 29, 28) !important;
+}
+
+.cart_empty span:nth-child(4) {
+  margin-bottom: 2.8rem !important;
+}
+
+.cart_empty a {
+  padding: 14px 28px;
+  transition: 0.1s all ease-in;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 4rem;
+  border-radius: 0.001px;
+  color: white;
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+  background-color: rgb(0, 137, 121);
+}
+
+.cart {
+  display: flex;
+  max-width: 1222px;
+  width: 100%;
+  gap: 20px;
+  margin-bottom: 51px;
+  flex-direction: row-reverse;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
